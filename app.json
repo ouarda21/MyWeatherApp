@@ -1,38 +1,40 @@
 {
   "expo": {
-    "name": "MyWeatherAppV2",
-    "slug": "MyWeatherAppV2",
+    "name": "Météo",
+    "slug": "meteo-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myweatherappv2",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#4a6fa1"
     },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Météo utilise ces informations pour offrir une expérience plus pertinente et plus personnalisée, par exemple pour partager votre localisation en direct ou vous proposer des adresses à proximité."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#4a6fa1"
       },
-      "edgeToEdgeEnabled": true
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Météo utilise ces informations pour offrir une expérience plus pertinente et plus personnalisée, par exemple pour partager votre localisation en direct ou vous proposer des adresses à proximité."
+        }
+      ]
+    ]
   }
 }
